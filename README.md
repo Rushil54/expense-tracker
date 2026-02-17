@@ -7,7 +7,7 @@ A production-grade expense tracker built with **PostgreSQL, Express, React, and 
 * **Data Correctness:** Stored all monetary values as **Integers (cents)** to avoid floating-point math errors.
 * **Filtering & Sorting:** Server-side filtering for performance and scalability.
 
-## 🛠 Tech Stack
+## Tech Stack
 * **Frontend:** React (Vite)
 * **Backend:** Node.js (Express)
 * **Database:** Supabase (PostgreSQL)
@@ -20,4 +20,5 @@ A production-grade expense tracker built with **PostgreSQL, Express, React, and 
 
 ## How to Run
 1.  **Backend:** `cd backend && npm install && node index.js`
+
 2.  **Frontend:** `cd frontend && npm install && npm run dev`
