@@ -5,7 +5,7 @@ const { Pool } = require('pg');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-console.log("Start");
+console.log(process.env.DATABASE_URL);
 // Middleware
 app.use(cors({
     origin: '*', // For testing, allows all origins. 
@@ -34,7 +34,7 @@ const pool = new Pool({
 app.get('/expenses', async (req, res) => {
     try {
         const { category, sort } = req.query;
-
+         console.log("debug1");
         let queryText = 'SELECT * FROM expenses';
         let queryParams = [];
         let conditions = [];
@@ -43,10 +43,12 @@ app.get('/expenses', async (req, res) => {
         if (category) {
             conditions.push(`category = $${queryParams.length + 1}`);
             queryParams.push(category);
+            console.log("debug2");
         }
 
         if (conditions.length > 0) {
             queryText += ' WHERE ' + conditions.join(' AND ');
+            console.log("debug3");
         }
 
         // 2. Sorting
@@ -56,8 +58,9 @@ app.get('/expenses', async (req, res) => {
             // Default sort (optional, but good for stability)
             queryText += ' ORDER BY created_at DESC';
         }
-
+       console.log("debug4");
         const result = await pool.query(queryText, queryParams);
+        console.log("debug5");
         res.json(result.rows);
 
     } catch (err) {
