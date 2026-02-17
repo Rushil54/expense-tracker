@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://expense-tracker-io8g.onrender.com';
 
 // 1. Generate a fresh key when the app loads
 let currentIdempotencyKey = uuidv4();
