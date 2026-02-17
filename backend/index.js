@@ -5,7 +5,7 @@ const { Pool } = require('pg');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-
+console.log("Start");
 // Middleware
 app.use(cors({
     origin: '*', // For testing, allows all origins. 
